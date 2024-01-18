@@ -27,6 +27,7 @@ class Duck {
 }
 
 const audio = new Audio("quack.mp3");
+audio.play()
 var duck = null
 
 // $(document).ready(function(e) {
