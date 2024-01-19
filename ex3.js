@@ -45,8 +45,12 @@ function check(){
         $("#minutes").val("")
         $("#hours").val("")
         $("#country").val("")
-        
-        $("body").append("<div id='container'></div>")
+        if ($("#container").html() == null) {
+            $("body").append("<div id='container'></div>") 
+        } else {
+            $("#container").html("")
+        }
+        // $("body").append("<div id='container'></div>")
         
         for (var i of listClocks) {
             $("#container").append(`<p>Name: ${i.country} Time: ${i.Show()} Seconds: ${i.ConverToSeconds()}</p>`)
