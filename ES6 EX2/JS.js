@@ -23,9 +23,24 @@ class Duck {
   }
 
   Quack() {
+    const audio = new Audio("../quack.mp3");
+    playSound("../quack.mp3", 3)
     let timesToQuack = (this.age * this.weight) / 2;
     return  "Quack! ".repeat(timesToQuack);
   }
+}
+
+const playSound = (audioURL, playCount = 1) => {
+
+  const audioContext = new AudioContext();   
+  audioContext.resume();
+
+  const audioClip = new Audio(audioURL);
+
+  const audioClipDuration = 2000;
+  audioClip.loop = true;
+  setTimeout(() => audioClip.loop = false, (audioClipDuration * (playCount - 1)));
+  audioClip.play();
 }
 
 $(document).ready(() => {
